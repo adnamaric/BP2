@@ -10,6 +10,7 @@
 DECLARE @BP2 VARCHAR(100)
 SET @BP2 = 'C:\BP2'
 EXEC master.dbo.xp_create_subdir @BP2
+GO
 
 DECLARE @Data VARCHAR(100)
 SET @Data = 'C:\BP2\Data'
@@ -28,7 +29,7 @@ LOG ON
 (
    NAME='IB160060_log',FILENAME='C:\BP2\Log\IB160060_mdf'
 )
-
+GO
 	--2.	U svojoj bazi podataka kreirati tabele sa sljedeæom strukturom:
 	--a)	Proizvodi
 	--i.	ProizvodID, cjelobrojna vrijednost i primarni kljuè
