@@ -5,15 +5,28 @@
 --	a)	Data fajl: D:\BP2\Data
 --	b)	Log fajl: D:\BP2\Log
 
--- Ukoliko folderi (data,log) ne postoje na disku,potrebno ih je kreirati!
+-- Ukoliko folderi (data i log) ne postoje na disku,potrebno ih je kreirati!
+
+DECLARE @BP2 VARCHAR(100)
+SET @BP2 = 'C:\BP2'
+EXEC master.dbo.xp_create_subdir @BP2
+
+DECLARE @Data VARCHAR(100)
+SET @Data = 'C:\BP2\Data'
+EXEC master.dbo.xp_create_subdir @Data
+
+DECLARE @Log VARCHAR(100)
+SET @Log = 'C:\BP2\Log'
+EXEC master.dbo.xp_create_subdir @Log
+
 
 CREATE DATABASE IB160060 ON
 ( 
-	NAME='IB160060_data',FILENAME='C:\Data\IB160060_mdf'
+	NAME='IB160060_data',FILENAME='C:\BP2\Data\IB160060_mdf'
 )
 LOG ON
 (
-   NAME='IB160060_log',FILENAME='C:\Log\IB160060_mdf'
+   NAME='IB160060_log',FILENAME='C:\BP2\Log\IB160060_mdf'
 )
 
 	--2.	U svojoj bazi podataka kreirati tabele sa sljedeæom strukturom:
